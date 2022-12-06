@@ -1,0 +1,5 @@
+Product product = new Product();
+product.setName(&quot;&quot;);
+product.setManufacturer(&quot;&quot;);
+
+productRepository.save(product);
