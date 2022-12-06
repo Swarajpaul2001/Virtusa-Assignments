@@ -1,0 +1,19 @@
+Session session = sessionFactory.openSession();
+Transaction tx = null;
+try {
+tx = session.beginTransaction();
+List manufacturers = session.createQuery(&quot;FROM Manufacturer m WHERE
+m.name = :name&quot;).setParameter(&quot;name&quot;, &quot;Manufacturer 1&quot;).list();
+for (Iterator iterator = manufacturers.iterator(); iterator.hasNext();){
+Manufacturer manufacturer = (Manufacturer) iterator.next();
+System.out.println(manufacturer.getName());
+}
+tx.commit();
+}
+catch (HibernateException e) {
+if (tx!=null) tx.rollback();
+e.printStackTrace();
+}
+finally {
+session.close();
+}
