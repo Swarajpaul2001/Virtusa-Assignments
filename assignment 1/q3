@@ -1,0 +1,24 @@
+public class Seclargest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str[] = {"4","10","6", "74","43","48"};
+		int f = Integer.valueOf(str[0]);
+		int s = Integer.valueOf(str[0]);
+		for(int i=1;i<str.length;i++)
+		{
+			int c = Integer.valueOf(str[i]);
+			if(c>f)
+			{
+				s = f;
+				f = c;
+			}
+			else
+			{
+				if(c>s && c<f)
+				s = c;
+			}
+		}
+		System.out.println("Second Largest = "+s);
+	}
+}
