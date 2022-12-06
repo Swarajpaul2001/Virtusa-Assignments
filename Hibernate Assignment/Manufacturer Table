@@ -1,3 +1,43 @@
 CREATE TABLE manufacturer (
 id int NOT NULL AUTO_INCREMENT, name varchar(255) NOT NULL, PRIMARY KEY (id)
 );
+&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+&quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
+&quot;http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd&quot;&gt;
+
+&lt;hibernate-configuration&gt;
+
+&lt;session-factory&gt;
+&lt;!-- Database connection settings --&gt;
+&lt;property
+name=&quot;connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
+&lt;property
+name=&quot;connection.url&quot;&gt;jdbc:mysql://localhost:3306/test&lt;/property&gt;
+&lt;property name=&quot;connection.username&quot;&gt;root&lt;/property&gt;
+&lt;property name=&quot;connection.password&quot;&gt;&lt;/property&gt;
+
+&lt;!-- JDBC connection pool (use the built-in) --&gt;
+&lt;property name=&quot;connection.pool_size&quot;&gt;1&lt;/property&gt;
+
+&lt;!-- SQL dialect --&gt;
+&lt;property name=&quot;dialect&quot;&gt;org.hibernate.dialect.MySQL5Dialect&lt;/property&gt;
+
+&lt;!-- Disable the second-level cache --&gt;
+
+&lt;property
+name=&quot;cache.provider_class&quot;&gt;org.hibernate.cache.NoCacheProvider&lt;/property&gt;
+
+&lt;!-- Echo all executed SQL to stdout --&gt;
+&lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;
+
+&lt;!-- Drop and re-create the database schema on startup --&gt;
+&lt;property name=&quot;hbm2ddl.auto&quot;&gt;create&lt;/property&gt;
+
+&lt;!-- Names the annotated entity class --&gt;
+&lt;mapping class=&quot;Product&quot;/&gt;
+&lt;mapping class=&quot;Customer&quot;/&gt;
+&lt;mapping class=&quot;Manufacturer&quot;/&gt;
+&lt;/session-factory&gt;
+
+&lt;/hibernate-configuration&gt;
