@@ -1,0 +1,23 @@
+Session session = sessionFactory.openSession();
+Transaction tx = null;
+try {
+tx = session.beginTransaction();
+Product product = new Product();
+product.setName(&quot;Product 1&quot;);
+Customer customer = new Customer();
+
+customer.setName(&quot;Customer 1&quot;);
+Manufacturer manufacturer = new Manufacturer();
+manufacturer.setName(&quot;Manufacturer 1&quot;);
+product.setCustomer(customer);
+product.setManufacturer(manufacturer);
+session.save(product);
+tx.commit();
+}
+catch (HibernateException e) {
+if (tx!=null) tx.rollback();
+e.printStackTrace();
+}
+finally {
+session.close();
+}
