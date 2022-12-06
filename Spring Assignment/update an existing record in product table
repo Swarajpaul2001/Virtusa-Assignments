@@ -1,0 +1,6 @@
+Product product = productRepository.findOne(1L);
+product.setName(&quot;&quot;);
+
+product.setManufacturer(&quot;&quot;);
+
+productRepository.save(product);
