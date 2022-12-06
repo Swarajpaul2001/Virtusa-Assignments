@@ -1,0 +1,10 @@
+class productId
+{
+constructor( productId, ProductName,Productprice)
+{
+this.productId=productId;
+this.ProductName=ProductName;
+this.Productprice=Productprice;
+}
+
+}
