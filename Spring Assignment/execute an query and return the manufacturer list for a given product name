@@ -1,0 +1,5 @@
+List&lt;Product&gt; products = productRepository.findByName(&quot;&quot;);
+
+for (Product product : products) {
+System.out.println(product.getManufacturer());
+}
