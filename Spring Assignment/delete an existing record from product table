@@ -1,0 +1,2 @@
+Product product = productRepository.findOne(1L);
+productRepository.delete(product);
